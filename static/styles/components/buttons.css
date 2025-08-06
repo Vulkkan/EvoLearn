@@ -1,0 +1,35 @@
+.btnMain,
+.btnAux {
+    /* width: 100%; */
+    color: #fff;
+    background: var(--primary-col);
+    /* box-shadow: var(--btn-shadow); */
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--btn-border-radius);
+    padding: 0.8rem 1.2rem;
+
+    transition: .2s, color .10s;
+        -webkit-transition: .2s, color .10s;
+        -moz-transition: .2s, color .10s;
+}
+
+.btnMain {
+    background-color: var(--primary-col);
+}
+.btnMain:hover {
+    color: #ddd;
+    box-shadow: var(--btn-shadow-hovrd);
+}
+
+.btnAux {
+    color: var(--primary-col);
+    background-color: var(--primary-col2);
+}
+.btnAux:hover {
+    color: #555;
+    box-shadow: var(--btn-shadow-hovrd);
+}

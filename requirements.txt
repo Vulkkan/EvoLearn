@@ -1,0 +1,11 @@
+flask
+PyPDF2
+gtts
+spacy
+nltk
+pdfplumber
+sumy
+fitz
+reportlab
+vosk
+pydub

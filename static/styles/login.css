@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-box {
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .logo {
+    width: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    margin-bottom: 5rem;
+  }
+  
+  .social-button {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+  .social-button:hover {
+    background-color: #ece8ff;
+    border: 1px solid #ece8ff;
+  }
+  .social-button img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1rem 0;
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ccc;
+    margin: 0 0.5rem;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  .password-wrapper {
+    position: relative;
+  }
+  
+  .password-wrapper .toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  /* .login-btn {
+    margin-top: 0.5rem;
+  } */
+  
+  .options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    margin: 0.5rem 0;
+  }
+  
+  .options a {
+    color: #444;
+    text-decoration: none;
+  }
+  
+  .signup {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .signup a {
+    color: var(--primary-col);
+    text-decoration: none;
+}

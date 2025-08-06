@@ -1,0 +1,151 @@
+.role {
+  color: #555;
+  font-size: 14px;
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.topic {
+  text-align: center;
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+
+.progress {
+  width: 100%;
+  height: 10px;
+  background: #eee;
+  border-radius: 5px;
+  margin: 20px 0;
+  position: relative;
+}
+.progress-bar {
+  height: 100%;
+  width: 20%;
+  background-color: #007bff;
+  border-radius: 5px;
+}
+.progress-text {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: 0.9em;
+}
+
+
+.quiz-area {
+  display: block;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.quiz-navigation {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+
+.button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.question-container {
+  display: none;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.question-container:target {
+  display: block;
+}
+
+body:not(:has(:target)) #q1 {
+  display: block;
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.option {
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 400px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option:hover {
+  background-color: #d0e2ff;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons a {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.buttons a:hover {
+  background-color: #0056b3;
+}
+
+/* Result styling */
+.score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #d0e2ff;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.message {
+  text-align: center;
+  font-size: 18px;
+  color: green;
+  margin-bottom: 20px;
+}

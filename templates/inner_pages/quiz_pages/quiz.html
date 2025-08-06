@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz</title>
+      <link href="/static/styles/quiz/quiz.css" rel="stylesheet" type="text/css" />
+      <link href="/static/styles/quiz/quiz_results.css" rel="stylesheet" type="text/css" />
+      <link href="/static/styles/shared-styles.css" rel="stylesheet" type="text/css" />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          let score = 0;
+          let currentQuestionIndex = 0;
+          const questions = {{ mcqs | default([]) | tojson }};
+          const totalQuestions = questions.length;
+          const userAnswers = [];
+      
+          const quizArea = document.getElementById('quiz-area');
+          const scoreDisplay = document.getElementById('score');
+          const nextBtn = document.getElementById('next-btn');
+          const resultSummary = document.getElementById('result-summary');
+      
+          function updateProgressBar(index) {
+              const percent = ((index + 1) / totalQuestions) * 100;
+              return `
+                  <div class="progress">
+                      <div class="progress-bar" style="width: ${percent}%;"></div>
+                      <div class="progress-text">${percent.toFixed(1)}% Complete</div>
+                  </div>`;
+          }
+      
+          function renderQuestion(index) {
+              const [_, [questionText, options, correctAnswer]] = questions[index];
+      
+              const optionsHTML = options.map((opt, i) => {
+                  const letter = String.fromCharCode(65 + i);
+                  return `<div class="option" data-option="${letter}">${letter}. ${opt}</div>`;
+              }).join('');
+      
+              quizArea.innerHTML = `
+                  ${updateProgressBar(index)}
+                  <div class="question">${index + 1}. ${questionText}</div>
+                  <div class="options-container">${optionsHTML}</div>
+                  <button id="next-btn" class="button">Next</button>
+              `;
+      
+              document.querySelectorAll('.option').forEach(option => {
+                  option.addEventListener('click', function () {
+                      const selectedOption = this.dataset.option;
+                      const isCorrect = selectedOption === correctAnswer;
+      
+                      userAnswers[index] = {
+                          questionIndex: index + 1,
+                          questionText,
+                          selectedOption,
+                          correctAnswer,
+                          isCorrect
+                      };
+      
+                      if (isCorrect) {
+                          this.classList.add('correct');
+                          score += 10;
+                      } else {
+                          this.classList.add('incorrect');
+                      }
+      
+                      scoreDisplay.textContent = `Score: ${score}/${totalQuestions * 10}`;
+                      disableOptions();
+      
+                      setTimeout(() => {
+                          if (currentQuestionIndex < totalQuestions - 1) {
+                              currentQuestionIndex++;
+                              renderQuestion(currentQuestionIndex);
+                          } else {
+                              showResults();
+                          }
+                      }, 1500);
+                  });
+              });
+          }
+      
+          function disableOptions() {
+              document.querySelectorAll('.option').forEach(option => {
+                  option.style.pointerEvents = 'none';
+              });
+          }
+      
+          nextBtn.addEventListener('click', () => {
+              if (currentQuestionIndex < totalQuestions - 1) {
+                  currentQuestionIndex++;
+                  renderQuestion(currentQuestionIndex);
+              }
+          });
+      
+          function showResults() {
+              quizArea.style.display = 'none';
+              scoreDisplay.style.display = 'none';
+              nextBtn.style.display = 'none';
+      
+              const correctCount = userAnswers.filter(ans => ans.isCorrect).length;
+              const incorrectCount = totalQuestions - correctCount;
+              const percent = (score / (totalQuestions * 10)) * 100;
+      
+              const message = percent >= 90 ? "Excellent work!" :
+                              percent >= 70 ? "Great effort!" :
+                              "Keep practicing!";
+      
+              document.getElementById('quiz-status').textContent = percent >= 50 ? "Quiz Passed!" : "Quiz Failed!";
+              document.getElementById('quiz-percent').textContent = `${percent.toFixed(0)}%`;
+              document.getElementById('total-q').textContent = totalQuestions;
+              document.getElementById('correct-q').textContent = correctCount;
+              document.getElementById('incorrect-q').textContent = incorrectCount;
+      
+              // Generate review block for incorrect answers
+              const reviewList = document.getElementById('review-list');
+              reviewList.innerHTML = '';
+              userAnswers.forEach(ans => {
+                  if (!ans.isCorrect) {
+                      reviewList.innerHTML += `
+                      <div class="question-block">
+                          <p><strong>Question ${ans.questionIndex}.</strong> ${ans.questionText}</p>
+                          <div class="answers-row">
+                              <div class="answer wrong">Your Answer:<br> ${ans.selectedOption}</div>
+                              <div class="answer correct">Correct Answer:<br> ${ans.correctAnswer}</div>
+                          </div>
+                      </div>`;
+                  }
+              });
+      
+              resultSummary.style.display = 'block';
+          }
+      
+          // Start the quiz
+          renderQuestion(currentQuestionIndex);
+      });
+      </script>
+</head>
+
+
+<body>
+  <!-- Quiz Body -->
+  <div class="container" style='padding: 20px;'>
+    <div class="title">Quiz</div>
+
+    <!-- Quiz Container -->
+  <div class="container">
+    <div id="quiz-area" class="quiz-area"></div>
+
+    <!-- Move "Next" button here, under quiz-area -->
+    <div class="quiz-navigation">
+      <button id="next-btn" class="button" hidden>Next</button>
+    </div>
+
+    <div id="score" class="score-display">Score: 0</div>
+  </div>
+
+  <!-- Result Summary (hidden until end) -->
+  <main id="result-summary" class="result-summary" style="display: none;">
+    <section class="result">
+      <div class="result-top-row">
+        <div id="quiz-status" class="status">Quiz Status</div>
+        <div id="quiz-percent" class="percentage">0%</div>
+      </div>
+
+      <div class="score-box">
+        <div>Total Questions<br><strong id="total-q">0</strong></div>
+        <div>Correct Answers<br><strong id="correct-q">0</strong></div>
+        <div>Incorrect Answers<br><strong id="incorrect-q">0</strong></div>
+      </div>
+    </section>
+
+    <section class="review">
+      <h3>Questions to Review</h3>
+      <div id="review-list"></div>
+
+      <div class="actions">
+        <a href="{{ url_for('home') }}">
+          <button style="background-color: blue;">Return to Dashboard</button>
+        </a>
+        <button class="#" onclick="location.reload()">Retry Quiz</button>
+      </div>
+    </section>
+  </main>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Intelleqt AI</title>
+    <link href="{{ request.url_for('static', path='styles/login.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ request.url_for('static', path='styles/shared-styles.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo-img">
+                <a href="{{ request.url_for('home') }}" class='link'>
+                    <h1 class="logo-txt">IQ</h1>
+                </a>
+            </div>
+            
+        <h3>Welcome Back</h3>
+
+        <a href="{{ request.url_for('dashboard') }}" class='link'>
+            <button class="social-button google">
+                <img src="../static/images/icons/google.svg" alt="Google" />
+                Continue with Google
+            </button>
+        </a>
+
+        <a href="{{ request.url_for('dashboard') }} " class='link'>
+            <button class="social-button apple">
+                <img src="../static/images/icons/apple.svg" alt="Apple" />
+                Continue with Apple
+            </button>
+        </a>
+
+        <!-- <div class="divider"><span>OR</span></div>
+
+        <form>
+            <input type="email" placeholder="Email" required />
+            <div class="password-wrapper">
+            <input type="password" placeholder="Password" id="password" required />
+            <span class="toggle" onclick="togglePassword()">👁️</span>
+            </div>
+
+            <button type="submit" class="btnMain">Log In</button>
+        </form> -->
+
+        <!-- <div class="options">
+            <a href="#">Log In with SAML</a>
+            <a href="#">Forgot Password?</a>
+        </div> -->
+
+        <br>
+        <div class="signup">
+            New to Intelleqt? <a href="{{ request.url_for('signup') }}" class='link'>Sign Up</a>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+        }
+    </script>
+</body>
+</html>

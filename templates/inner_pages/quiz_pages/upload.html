@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Intelleqt AI{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ request.url_for('static', path='styles/upload_style.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="container">
+            <h4>Upload a PDF to Generate Quiz</h4>
+
+            <form id="uploadForm" action="/upload_for_quiz" method="post" enctype="multipart/form-data">
+                    <div class="cardupload">
+                        <h3>Quiz</h3>
+                        
+                        <div class="drop_box">
+                            <h4>Select (PDF) File here</h4>
+
+                            <input type="file" name="pdf_file" accept=".pdf" id="fileID" required>
+
+                            <h4 style="margin-top: 30px;">Number of question(s) to <br>generate</h4>
+                            <input type="number" name="num_questions" value="5" min="1" max="100" required>
+                        </div>
+
+                        <div class="ans-btn-container">
+                            <button class="btnAux" type="submit">Upload</button>
+                        </div>
+                    </div>
+            </form>
+            
+        </div>
+        <div class="loader-container" id="loaderContainer">
+            <div class="loader"></div>
+        </div>
+    </main>
+{% endblock %}

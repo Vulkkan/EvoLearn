@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Intelleqt AI - Dashboard{% endblock %}
+
+{% block extra_css %}
+  <link href="{{ request.url_for('static', path='styles/dashboard.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    <!-- =============== Top ===============-->
+    <main>
+      <section class="top">
+        <h3>Dashboard</h3>
+
+        <!-- =============== Conversion ===============-->
+        <h4>Conversion Tools</h4>
+        <div class="gridWrapper" id="teamWrapper">
+            <!-- Card -->
+            <div class="info-card">
+                <div class="card-text">
+                    <h4>Document to Voice</h4>
+                    <p>Convert written content into natural-sounding audio.</p>
+                </div>
+                <div class="card-arrow">
+                    <a href="text_to_speech" class='link'> ➜ </a>
+                </div>
+            </div> <!-- Card -->
+
+            <!-- Card -->
+            <div class="info-card">
+                <div class="card-text">
+                    <h4>Voice to Document</h4>
+                    <p>Turn voice recordings into documents.</p>
+                </div>
+                <div class="card-arrow">
+                    <a href="speech_to_text" class='link'> ➜ </a>
+                </div>
+            </div> <!-- Card -->
+
+            <!-- Card -->
+            <!-- <div class="info-card">
+                <div class="card-text">
+                    <h4>Image to Document</h4>
+                    <p>Pull text out of images documents.</p>
+                </div>
+                <div class="card-arrow">
+                    <a href="#" class='link'> ➜ </a>
+                </div>
+            </div>  -->
+
+        </div> <!-- =========== Conversion ===========-->
+
+        <!-- =============== Documents ===============-->
+        <h4>Document Tools</h4>
+        <div class="gridWrapper" id="teamWrapper">
+            <!-- Card -->
+            <div class="info-card">
+                <div class="card-text">
+                    <h4>Summarize</h4>
+                    <p>Distill long text into key takeaways.</p>
+                </div>
+                <div class="card-arrow">
+                    <a href="summary_page" class='link'> ➜ </a>
+                </div>
+            </div> <!-- Card -->
+
+            <!-- <div class="info-card">
+                <div class="card-text">
+                    <h4>Topic Extraction</h4>
+                    <p>Quickly generate an overall idea of a document.</p>
+                </div>
+                <div class="card-arrow">
+                    <a href="#" class='link'> ➜ </a>
+                </div>
+            </div> -->
+
+            <!-- <div class="info-card">
+                <div class="card-text">
+                    <h4>Proofread</h4>
+                    <p>Scan your document and fix grammatical errors.</p>
+                </div>
+                <div class="card-arrow">
+                    <a href="#" class='link'> ➜ </a>
+                </div>
+            </div> -->
+
+            <!-- Card -->
+            <div class="info-card">
+                <div class="card-text">
+                    <h4>Quiz Maker</h4>
+                    <p>Create quizzes from your documents.</p>
+                </div>
+                <div class="card-arrow">
+                    <a href="quiz_upload" class='link'> ➜ </a>
+                </div>
+            </div> <!-- Card -->
+
+            <!-- Card -->
+            <div class="info-card">
+                <div class="card-text">
+                    <h4>Proofread</h4>
+                    <p>Scan your document and fix grammatical errors.</p>
+                </div>
+                <div class="card-arrow">
+                    <a href="#" class='link'> ➜ </a>
+                </div>
+            </div> <!-- Card -->
+        </div> <!-- =========== Documents ===========-->
+
+
+        <!-- =============== Developer ===============-->
+        <h4>Developer Tools</h4>
+        <div class="gridWrapper" id="teamWrapper">
+            <!-- Card -->
+            <div class="info-card">
+                <div class="card-text">
+                    <h4>Data Generator</h4>
+                    <p>Create CSV/JSON from natural inputs.</p>
+                </div>
+                <div class="card-arrow">
+                    <a href="#" class='link'> ➜ </a>
+                </div>
+            </div> <!-- Card -->
+
+            <!-- Card -->
+            <div class="info-card">
+                <div class="card-text">
+                    <h4>Chat with Dataset</h4>
+                    <p>Upload datasets and interact in plain English.</p>
+                </div>
+                <div class="card-arrow">
+                    <a href="#" class='link'> ➜ </a>
+                </div>
+            </div> <!-- Card -->
+        </div> <!-- =========== Developer ===========-->
+
+      </section>
+    </main>
+
+{% endblock %}

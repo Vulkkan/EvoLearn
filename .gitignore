@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# C extensions
+*.so
+venv
+.venv
+./venv
+/venv
+.env
+./.env
+/.env
+
+helper/models
+/helper/models
+
+uploads
+/uploads

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Intelleqt{% endblock %}</title>
+  
+  <link href="/static/styles/shared-styles.css" rel="stylesheet" type="text/css" />
+
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo-img">
+        <a href="{{ request.url_for('home') }}" class='link'>
+            <h1 class="logo-txt">Intelleqt</h1>
+        </a>
+    </div>
+
+    <!-- HEADER Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- HEADER Nav Menu -->
+    <nav>
+      <ul class="nav" id="navMenu">
+
+        <!-- Mobile buttons -->
+        <li class="mobile-only">
+          <a href="{{ request.url_for('login') }}">
+            <button class="btnAux">My Account</button>
+          </a>
+        </li>
+        <li class="mobile-only">
+          <a href="{{ request.url_for('onboarding') }}">
+            <button class="btnMain">Settings</button>
+          </a>
+        </li> <!-- Mobile buttons -->
+
+      </ul>
+    </nav>
+
+    <!-- DESKTOP buttons -->
+    <div class="navBtns desktop-only">
+      <a href="#">
+        <button class="btnAux">My Account</button>
+      </a>
+
+      <!-- <a href="#" class="link">Settings</a> -->
+
+      <a href="#">
+        <button class="btnMain">Settings</button>
+      </a>
+    </div> <!-- DESKTOP buttons -->
+  </header> <!-- HEADER -->
+  
+  {% block content %}{% endblock %}
+  <script src="../static/js/landing_page.js"></script>
+</body>
+</html>

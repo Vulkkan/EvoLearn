@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transcription Result</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="{{ request.url_for('static', path='styles/index3.css') }}" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            padding: 2rem;
+            background: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .transcript-box {
+            background: #f1f1f1;
+            border-radius: 8px;
+            padding: 1rem;
+            max-height: 1000px;
+            overflow-y: auto;
+            margin-top: 1rem;
+        }
+
+        .button {
+            background-color: #1976D2;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1.5rem;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 1rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <h1>Transcription Result</h1>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% elif transcript %}
+        <div class="transcript-box">
+            {{ transcript.strip() }}
+        </div>
+
+        {% if transcript_filename %}
+            <a class="button" href="{{ request.url_for('static', path='output/transcript_output/' + transcript_filename) }}" download>
+            Download Transcript
+            </a>
+        {% endif %}
+        {% else %}
+        <p>No transcript to show.</p>
+    {% endif %}
+        <br><br>
+    </div>
+</body>
+</html>

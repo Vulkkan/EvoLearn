@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    margin: 20px;
+    margin-top: 10vh;
+    gap: 50px
+}
+
+.drop_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 30px;
+    color: #fff; background-color: #52557d;
+    border-radius: var(--btn-border-radius);
+    padding: 20px; margin-bottom: 15px;
+}
+
+input[type=file] {
+    max-width: 100%;
+    color: var(--primary-col);
+    font-weight: 600;
+    padding: 5px;
+    background-color: #efebff;
+    border-radius: var(--btn-border-radius);
+    margin: 20px;
+    }
+
+input[type=file]::file-selector-button {
+    color: #fff;
+    background: #52557d;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--btn-border-radius);
+    padding: 0.75rem;
+
+    transition: .5s, color .10s;
+        -webkit-transition: .5s, color .10s;
+        -moz-transition: .5s, color .10s;
+}
+
+input[type=file]::file-selector-button:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+input[type=number]{
+    width: 250px;
+    max-width: 100%;
+    font-weight: 700;
+    padding: 15px 5px;
+    background-color: #efebff;
+    border-radius: var(--btn-border-radius);
+    font-size: 1rem;
+}

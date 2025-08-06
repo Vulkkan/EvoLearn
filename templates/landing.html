@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intelleqt</title>
+  <link href="{{ request.url_for('static', path='styles/landing.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ request.url_for('static', path='styles/shared-styles.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>  
+  <!-- =============== HEADER ===============-->
+  <header class="header">
+    <div class="logo-img">
+      <a href="{{ request.url_for('home') }}" class='link'>
+          <h1 class="logo-txt">Intelleqt</h1>
+      </a>
+    </div>
+
+    <!-- HEADER Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- HEADER Nav Menu -->
+    <nav>
+      <ul class="nav" id="navMenu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#description">About</a></li>
+        <li><a href="#features">Features</a></li>
+
+        <!-- Mobile buttons -->
+        <li class="mobile-only">
+          <a href="{{ request.url_for('login') }}">
+            <button class="btnAux">Login</button>
+          </a>
+        </li>
+        <li class="mobile-only">
+          <a href="{{ request.url_for('onboarding') }}">
+            <button class="btnMain">Sign Up</button>
+          </a>
+        </li> <!-- Mobile buttons -->
+
+      </ul>
+    </nav>
+
+    <!-- DESKTOP buttons -->
+    <div class="navBtns desktop-only">
+      <a href="{{ request.url_for('login') }}">
+        <button class="btnAux">Login</button>
+      </a>
+      <a href="{{ request.url_for('signup') }}">
+        <button class="btnMain">Sign Up</button>
+      </a>
+    </div> <!-- DESKTOP buttons -->
+  </header> <!-- =============== HEADER ===============-->
+
+
+    <main>
+      <!-- =============== HERO ===============-->
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Access powerful tools</h1>
+
+          <p>Tools for students, educators, creators, <br>
+            and developers to simplify how you work with knowledge.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="{{ request.url_for('signup') }}">
+              <button class="btnMain">Try it Now</button>
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+              <button class="btnAux">Watch video</button>
+            </a>
+          </div>
+
+          <!-- HERO IMAGE -->
+          <div class="hero-img">
+            <img src="../static/images/hero-image.png" />
+          </div>
+          
+        </div>
+      </section> <!-- =============== HERO ===============-->
+
+
+      <!-- =============== DESCRIPTION ===============-->
+      <section class="description" id="desc">
+        <div class="description-box">
+          <h4 class="head4">Description</h4>
+          <h3 class="head3" style="margin-top: 20px;">Built for Modern Minds</h3>
+
+          <p>
+            A suite of smart tools to accelerate learning, <br>
+            create content effortlessly, and unlock insight from everyday data.
+          </p>
+
+          <a href="{{ request.url_for('signup') }}" class='link'>
+            <button class="btnMain" style="width: 120px;">Join</button>
+          </a>
+          
+        </div>
+      </section> <!-- ============ DESCRIPTION ============-->
+
+
+    <!-- =============== FEATURES ===============-->
+    <section class="features" id="features">
+        <h3 class="head3" style="margin-top: 20px;">Available tools</h3>
+
+        <!-- CAROUSEL Conversion Tools-->
+        <h4 class="head4">🧠 Conversion Tools</h4>
+          <div class="carouselWrapper" id="teamWrapper">
+            
+            <div class="carouselCard">
+              <h4>Document to Voice</h4>
+              <p>Convert written content into natural-sounding audio.</p>
+            </div>
+            <div class="carouselCard">
+              <h4>Voice to Document</h4>
+              <p>Turn voice recordings into documents.</p>
+            </div>
+            <div class="carouselCard">
+              <h4>Image to Document</h4>
+              <p>Pull text out of images documents.</p>
+            </div>
+          </div><!-- CAROUSEL Conversion Tools-->
+
+
+        <!-- CAROUSEL Document Tools-->
+        <h4 class="head4">✍️ Document Tools</h4>
+        <div class="carouselCards">
+          <div class="carouselWrapper">
+            <div class="carouselCard">
+              <h4>Summarize</h4>
+              <p>Distill long text into key takeaways.</p>
+            </div>
+            <div class="carouselCard">
+              <h4>Topic Extraction</h4>
+              <p>Quickly generate an overall idea of a document.</p>
+            </div>
+            <div class="carouselCard">
+              <h4>Proofread</h4>
+              <p>Scan your document and fix grammatical errors.</p>
+            </div>
+            <div class="carouselCard">
+              <h4>Quiz Maker</h4>
+              <p>Create quizzes from your documents.</p>
+            </div>
+          </div>
+        </div> <!-- CAROUSEL Text Tools-->
+
+        <!-- Join -->
+        <div style="margin-top: 40px; display: flex; justify-content: center; flex-direction: column;">
+
+          <h3 class="head3">Join to start using</h3>
+
+          <a href="{{ request.url_for('signup') }}" class='link'>
+            <button class="btnMain" style="width: 120px;">Join</button>
+          </a>
+
+        </div> <!-- Join -->
+
+    </section>
+    </main>
+
+
+
+    <footer>
+    <div class="footer-container">
+      <div class="info-wrap">        
+          <div class="logo-img">
+            <h1 class="logo-txt2">Intelleqt AI</h1>
+          </div>
+  
+          <div class="info" style="display: flex; flex-direction: column; gap: 10px;">
+            <p>Creators</p>
+            <p>Students</p>
+            <p>Educators</p>
+            <p>Developers</p>
+          </div>
+        <!-- </div> -->
+
+        <br><br>
+        <div class="info">
+          <a class="link" href="https://victoriano.3996@gmail.com" target="_blank">
+            <p>victoriano.3996@gmail.com</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="quick-links">
+        <nav>
+          <a href="https://linkedin.com/in/vulkkan" target="_blank"><img src="../static/images/icons/linkedin.svg" /></a>
+          <a href="#" target="_blank"><img src="../static/images/icons/twitter.svg" /></a>
+          <a href="https://github.com/Vulkkan" target="_blank"><img src="../static/images/icons/git-blue.svg" /></a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../static/js/landing_page.js"></script>
+  </body>
+</html>

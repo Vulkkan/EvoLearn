@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup - Intelleqt AI</title>
+    <link href="{{ request.url_for('static', path='styles/login.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ request.url_for('static', path='styles/shared-styles.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo-img">
+                <a href="{{ request.url_for('home') }}" class='link'>
+                    <h1 class="logo-txt">IQ</h1>
+                </a>
+            </div>
+            
+        <h3>Sign up</h3>
+
+        <a href="{{ request.url_for('dashboard') }}" class='link'>
+            <button class="social-button google">
+                <img src="../static/images/icons/google.svg" alt="Google" />
+                Continue with Google
+            </button>
+        </a>
+
+        <a href="{{ request.url_for('dashboard') }} " class='link'>
+            <button class="social-button apple">
+                <img src="../static/images/icons/apple.svg" alt="Apple" />
+                Continue with Apple
+            </button>
+        </a>
+
+        <br>
+        <div class="signup">
+            <a href="{{ request.url_for('login') }}">Login</a>
+        </div>
+
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+        }
+    </script>
+</body>
+</html>

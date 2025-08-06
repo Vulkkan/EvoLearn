@@ -1,0 +1,98 @@
+/* @import url('fonts/Poppins/poppins.css'); */
+@import url('catto/catto.min.css');
+@import url('components/header.css');
+@import url('components/buttons.css');
+
+
+:root{
+    --primary-col: #00054e;
+    --primary-col2: #daddec;
+    --btn-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+    --btn-shadow-hovrd: 0 5px 5px rgba(0, 0, 0, 0.18);
+    --background-gradient: linear-gradient(#ffffff, #d9dbfd);
+
+    --btn-border-radius: 8px;
+    --border-radius: 12px;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url('fonts/Lexend-VariableFont_wght.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'logoFont';
+    src: url('fonts/CrystalRadioKit.otf');
+    font-weight: bolder;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body {
+    /* Lexend */
+    font-family: 'Lexend';
+    font-size: 23px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+p {
+    /* text-align: center; */
+    color: #555;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+
+/* 
+LOGO
+; */
+.logo-img {
+    height: 36px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.logo-txt,
+.logo-txt2 {
+    font-family: logoFont;
+    font-weight: bold;
+    font-size: 2.1rem;
+    color: var(--primary-col);
+}
+.logo-txt2 {
+    color: white;
+}
+
+
+/* TEXTS */
+.head3 {
+    font-size: 2.3rem;
+    margin-bottom: 30px;
+    color: var(--primary-col);
+}
+.head4 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--primary-col);
+}
+
+.link {
+    text-decoration: none;
+}
+
+
+
+@media (max-width: 768px) {
+    .head3 {
+        font-size: 1.8rem;
+    }
+    .head4 {
+        text-align: start;
+    }
+}
