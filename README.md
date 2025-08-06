@@ -2,6 +2,8 @@
 A suite of tools for students, educators, creators,
 and developers to simplify working with documents.
 
+![App Screenshot](assets/screenshot.png)
+
 ### Setup
 1. pip install the requirements
 
