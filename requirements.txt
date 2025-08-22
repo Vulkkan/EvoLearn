@@ -9,3 +9,4 @@ fitz
 reportlab
 vosk
 pydub
+uvicorn
